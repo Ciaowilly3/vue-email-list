@@ -21,9 +21,14 @@
   </head>
   <body class="bg-dark">
     <div class="container" id="app">
-      <h1 class="text-center text-primary mb-5">EmaiList</h1>
+      <h1 class="text-center text-white mb-5">EmaiList</h1>
       <ul class="list-group">
-        <li class="list-group-item" v-for="email in emailList">{{email}}</li>
+        <li
+          class="list-group-item bg-success text-white fs-5 text-center"
+          v-for="email in emailList"
+        >
+          {{email}}
+        </li>
       </ul>
     </div>
 

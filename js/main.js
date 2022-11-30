@@ -4,6 +4,7 @@ const app = createApp({
   data() {
     return {
       emailList: [],
+      arrayToCopy: [],
     };
   },
   methods: {
@@ -11,14 +12,19 @@ const app = createApp({
       axios
         .get("https://flynn.boolean.careers/exercises/api/random/mail")
         .then((email) => {
-          console.log(email.data.response);
-          this.emailList.push(email.data.response);
+          this.arrayToCopy.push(email.data.response);
+          if (this.arrayToCopy.length === 10) {
+            this.emailList = this.arrayToCopy;
+          }
         });
+    },
+    itineratingFnction() {
+      for (let i = 0; i < 10; i++) {
+        this.createEmailArray();
+      }
     },
   },
   mounted() {
-    for (let i = 0; i < 10; i++) {
-      this.createEmailArray();
-    }
+    this.itineratingFnction();
   },
 }).mount("#app");
